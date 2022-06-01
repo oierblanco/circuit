@@ -4,11 +4,12 @@ let _2_atala = 0
 let _3_atala = 0
 basic.forever(function () {
     if (_1_atala == 1) {
-        DFRobotMaqueenPlus.mototRun(Motors.ALL, Dir.CW, 75)
-    }
-    if (DFRobotMaqueenPlus.ultraSonic(PIN.P1, PIN.P2) == 15) {
-        _1_atala = 0
-        _2_atala = 1
+        DFRobotMaqueenPlus.mototRun(Motors.ALL, Dir.CW, 50)
+        if (DFRobotMaqueenPlus.ultraSonic(PIN.P1, PIN.P2) < 15) {
+            DFRobotMaqueenPlus.mototStop(Motors.ALL)
+            _1_atala = 0
+            _2_atala = 1
+        }
     }
 })
 basic.forever(function () {
